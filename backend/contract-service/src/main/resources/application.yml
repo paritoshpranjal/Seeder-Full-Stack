@@ -1,0 +1,26 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: CONTRACT-SERVICE
+  datasource:
+    url: jdbc:mysql://3.145.178.184:30944/BC142_Seeder
+    username: dev
+    password: Bootcamp@142
+    hikari:
+      maximum-pool-size: 10
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: false
+    hostname: localhost

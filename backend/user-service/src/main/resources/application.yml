@@ -1,0 +1,35 @@
+server:
+  port: 9004
+
+spring:
+  application:
+    name: USER-SERVICE
+  datasource:
+    url: jdbc:mysql://3.145.178.184:30944/BC142_Seeder
+    username: dev
+    password: Bootcamp@142
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+  flyway:
+    baselineOnMigrate: true
+    locations: classpath:db/migration
+    validate-on-migrate: false
+    encoding: UTF-8
+    out-of-order: true
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: false
+    hostname: localhost
+
+SECRET_ID: 2b7e151628aed2a6abf7158809cf4f3c2b7e151628aed2a6abf7158809cf4f3c2

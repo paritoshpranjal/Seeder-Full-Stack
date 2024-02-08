@@ -1,0 +1,73 @@
+name: Bootcamp142 - Mockserver deployment 
+on:
+  push:
+    branches:
+      - "deployment"
+    paths:
+      - ".github/workflows/mockserverdeploy.yaml"
+      - "frontend/**" 
+env:
+  GITHUB_PACKAGE_URL: https://ghcr.io
+
+jobs:
+  mockserver-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: checkout the repo
+        uses: actions/checkout@v2
+      
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.GHCR_USERNAME }}
+          password: ${{ secrets.GHCR_PAT }}
+
+      - name: Build and Push the Image to GHCR
+        run: |
+          docker build . -t ghcr.io/${{ secrets.GHCR_USERNAME }}/bootcamp142-mockserver:${{ github.sha }};
+          docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/bootcamp142-mockserver:${{ github.sha }} 
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: checkout the repo
+        uses: actions/checkout@v2 
+      - name: Retrieve the env vars
+        run: echo "${{ secrets.FE_ENV }}" > .env
+      - name: building image for frontend
+        run: docker build .  -f  front.dockerfile -t ghcr.io/${{ secrets.GHCR_USERNAME }}/bootcamp142-frontend:${{ github.sha }}
+      - name: login to github packages
+        run: docker login ${{ env.GITHUB_PACKAGE_URL }} -u ${{ secrets.GHCR_USERNAME }} --password ${{ secrets.GHCR_PAT }}
+      - name: pushing image
+        run: docker push ghcr.io/${{ secrets.GHCR_USERNAME }}/bootcamp142-frontend:${{ github.sha }} 
+
+     
+  mockserver-deployment:
+    needs: 
+      - mockserver-build
+      - frontend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.EKS_CLUSTER_REGION }}
+
+      - name: Configure the EKS Cluster
+        run: aws eks update-kubeconfig --region ${{ secrets.EKS_CLUSTER_REGION }} --name ${{ secrets.EKS_CLUSTER_NAME }}
+
+      - name: Update the deployment with latest image.
+        run: |
+          kubectl set image deployment/bc142-mockserver bc142-mockserver=ghcr.io/${{ secrets.GHCR_USERNAME }}/bootcamp142-mockserver:${{ github.sha }}
+          kubectl set image deployment/bc142-frontend bc142-frontend=ghcr.io/${{ secrets.GHCR_USERNAME }}/bootcamp142-frontend:${{ github.sha }}
+      - name: Delete the Credentials
+        run: rm -rf .kube

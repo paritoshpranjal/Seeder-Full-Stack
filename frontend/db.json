@@ -1,0 +1,397 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "Abcd@1234",
+      "availableCredit": 27110.399999999994
+    },
+    {
+      "name": "satish",
+      "email": "satish@gmail.com",
+      "password": "Satish@123",
+      "availableCredit": 621164.64,
+      "id": 3
+    },
+    {
+      "name": "Satish Nakkina",
+      "email": "satish.nakkina@zemosolabs.com",
+      "password": "Password@123",
+      "availableCredit": 880000,
+      "id": 4
+    },
+    {
+      "name": "ramui",
+      "email": "ramu@gmail.com",
+      "password": "Ram@1234",
+      "availableCredit": 880000,
+      "id": 5
+    },
+    {
+      "name": "karan",
+      "email": "karan@gmail.com",
+      "password": "Karan@123",
+      "availableCredit": 501937.28,
+      "id": 6
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "userId": 1,
+      "dueDate": "2023-11-20T03:23:34Z",
+      "status": "Upcoming",
+      "expectedAmount": 14204.55,
+      "outstandingAmount": 156250.05
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "dueDate": "2023-12-20T03:23:34Z",
+      "status": "Upcoming",
+      "expectedAmount": 14204.55,
+      "outstandingAmount": 156250.05
+    },
+    {
+      "userId": 3,
+      "dueDate": "2023-12-20T05:01:37.175Z",
+      "status": "Upcoming",
+      "expectedAmount": 56228.946666666656,
+      "outstandingAmount": 674747.3599999999,
+      "id": 3
+    },
+    {
+      "userId": 6,
+      "dueDate": "2023-12-20T05:17:41.241Z",
+      "status": "Upcoming",
+      "expectedAmount": 0,
+      "outstandingAmount": 0,
+      "id": 4
+    },
+    {
+      "userId": 6,
+      "dueDate": "2023-12-20T05:19:42.609Z",
+      "status": "Upcoming",
+      "expectedAmount": 23620.426666666666,
+      "outstandingAmount": 283445.12,
+      "id": 5
+    },
+    {
+      "userId": 6,
+      "dueDate": "2023-12-20T05:29:05.116Z",
+      "status": "Upcoming",
+      "expectedAmount": 29534.02666666666,
+      "outstandingAmount": 354408.31999999995,
+      "id": 6
+    },
+    {
+      "userId": 6,
+      "dueDate": "2023-12-20T05:48:08.524Z",
+      "status": "Upcoming",
+      "expectedAmount": 31505.226666666666,
+      "outstandingAmount": 378062.72,
+      "id": 7
+    }
+  ],
+  "contracts": [
+    {
+      "id": 1,
+      "name": "Contract 1",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 12000.25,
+      "totalFinanced": "-",
+      "totalAvailable": 126722.64,
+      "termLength": 12,
+      "termRate": 12,
+      "paymentAmount": 63360,
+      "partialAmount": 0
+    },
+    {
+      "id": 2,
+      "name": "Contract 2",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 6000,
+      "totalFinanced": "-",
+      "totalAvailable": 63360,
+      "termLength": 12,
+      "termRate": 12,
+      "paymentAmount": 63360,
+      "partialAmount": 0
+    },
+    {
+      "id": 3,
+      "name": "Contract 3",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 6000,
+      "totalFinanced": "-",
+      "totalAvailable": 63360,
+      "termLength": 12,
+      "termRate": 12,
+      "paymentAmount": 63360,
+      "partialAmount": 0
+    },
+    {
+      "id": 4,
+      "name": "Contract 4",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 6000,
+      "totalFinanced": "-",
+      "totalAvailable": 63360,
+      "termLength": 12,
+      "termRate": 12,
+      "paymentAmount": 63360,
+      "partialAmount": 0
+    },
+    {
+      "id": 5,
+      "name": "Contract 5",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 6000,
+      "totalFinanced": "-",
+      "totalAvailable": 63360,
+      "termLength": 12,
+      "termRate": 12,
+      "paymentAmount": 63360,
+      "partialAmount": 0
+    },
+    {
+      "id": 6,
+      "name": "Contract 6",
+      "status": "Available",
+      "type": "Monthly",
+      "perPayment": 6000,
+      "totalFinanced": "-",
+      "totalAvailable": 63360,
+      "termLength": 12,
+      "termRate": 12,
+      "paymentAmount": 21120,
+      "partialAmount": 0
+    }
+  ],
+  "cashkicks": [
+    {
+      "name": "My First Advance",
+      "status": "Pending",
+      "maturity": "2023-11-21T12:02:33Z",
+      "totalFinanced": 199128.2384,
+      "totalReceived": 177793.07,
+      "termRate": 12,
+      "id": 1,
+      "userId": 1
+    },
+    {
+      "name": "first_cashkick",
+      "status": "pending",
+      "maturity": "2023-12-20T03:14:52.060Z",
+      "totalFinanced": 258835.36,
+      "totalReceived": 231103,
+      "userId": 3,
+      "id": 2
+    },
+    {
+      "name": "second_cashkick",
+      "status": "pending",
+      "maturity": "2023-12-20T03:23:11.797Z",
+      "totalFinanced": 212889.6,
+      "totalReceived": 190080,
+      "userId": 3,
+      "id": 3
+    },
+    {
+      "name": "capital-cashkick",
+      "status": "pending",
+      "maturity": "2023-12-20T03:27:08.205Z",
+      "totalFinanced": 94617.6,
+      "totalReceived": 84480,
+      "userId": 3,
+      "id": 4
+    },
+    {
+      "name": "fourth",
+      "status": "pending",
+      "maturity": "2023-12-20T05:00:19.215Z",
+      "totalFinanced": 108404.8,
+      "totalReceived": 96790,
+      "userId": 3,
+      "id": 5
+    },
+    {
+      "name": "fifth",
+      "status": "pending",
+      "maturity": "2023-12-20T05:01:37.090Z",
+      "totalFinanced": 182431.2,
+      "totalReceived": 162885,
+      "userId": 3,
+      "id": 6
+    },
+    {
+      "name": "first_cashkick",
+      "status": "pending",
+      "maturity": "2023-12-20T05:17:41.174Z",
+      "totalFinanced": 283445.12,
+      "totalReceived": 253076,
+      "userId": 6,
+      "id": 7
+    },
+    {
+      "name": "second",
+      "status": "pending",
+      "maturity": "2023-12-20T05:19:42.557Z",
+      "totalFinanced": 70963.2,
+      "totalReceived": 63360,
+      "userId": 6,
+      "id": 8
+    },
+    {
+      "name": "sample",
+      "status": "pending",
+      "maturity": "2023-12-20T05:29:05.074Z",
+      "totalFinanced": 23654.4,
+      "totalReceived": 21120,
+      "userId": 6,
+      "id": 9
+    },
+    {
+      "name": "fewf",
+      "status": "pending",
+      "maturity": "2023-12-20T05:48:08.461Z",
+      "totalFinanced": 212889.6,
+      "totalReceived": 190080,
+      "userId": 6,
+      "id": 10
+    }
+  ],
+  "cashkick-contracts": [
+    {
+      "cashkickId": 1,
+      "contractId": 1,
+      "id": 1
+    },
+    {
+      "cashkickId": 1,
+      "contractId": 2,
+      "id": 2
+    },
+    {
+      "cashkickId": 2,
+      "contractId": 1,
+      "id": 3
+    },
+    {
+      "cashkickId": 2,
+      "contractId": 4,
+      "id": 4
+    },
+    {
+      "cashkickId": 2,
+      "contractId": 2,
+      "id": 5
+    },
+    {
+      "cashkickId": 2,
+      "contractId": 3,
+      "id": 6
+    },
+    {
+      "cashkickId": 3,
+      "contractId": 1,
+      "id": 7
+    },
+    {
+      "cashkickId": 3,
+      "contractId": 3,
+      "id": 8
+    },
+    {
+      "cashkickId": 3,
+      "contractId": 4,
+      "id": 9
+    },
+    {
+      "cashkickId": 4,
+      "contractId": 1,
+      "id": 10
+    },
+    {
+      "cashkickId": 4,
+      "contractId": 6,
+      "id": 11
+    },
+    {
+      "cashkickId": 5,
+      "contractId": 1,
+      "id": 12
+    },
+    {
+      "cashkickId": 5,
+      "contractId": 2,
+      "id": 13
+    },
+    {
+      "cashkickId": 6,
+      "contractId": 1,
+      "id": 14
+    },
+    {
+      "cashkickId": 6,
+      "contractId": 2,
+      "id": 15
+    },
+    {
+      "cashkickId": 6,
+      "contractId": 3,
+      "id": 16
+    },
+    {
+      "cashkickId": 7,
+      "contractId": 1,
+      "id": 17
+    },
+    {
+      "cashkickId": 7,
+      "contractId": 2,
+      "id": 18
+    },
+    {
+      "cashkickId": 7,
+      "contractId": 4,
+      "id": 19
+    },
+    {
+      "cashkickId": 7,
+      "contractId": 3,
+      "id": 20
+    },
+    {
+      "cashkickId": 8,
+      "contractId": 4,
+      "id": 21
+    },
+    {
+      "cashkickId": 9,
+      "contractId": 6,
+      "id": 22
+    },
+    {
+      "cashkickId": 10,
+      "contractId": 1,
+      "id": 23
+    },
+    {
+      "cashkickId": 10,
+      "contractId": 2,
+      "id": 24
+    },
+    {
+      "cashkickId": 10,
+      "contractId": 3,
+      "id": 25
+    }
+  ]
+}
